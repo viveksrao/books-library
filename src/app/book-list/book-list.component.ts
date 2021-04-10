@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookListComponent implements OnInit {
   pageTitle: string = 'Book List';
+  imageBorder: string = '1px solid #212529';
+  imagePadding: number = 4;
+  showImage: boolean = false;
+  listFilter: string = 'Drupal 9';
   books: any[] = [
     {
       bookId: 1,
@@ -43,4 +47,8 @@ export class BookListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  toggleImage(): void {
+    this.showImage = !this.showImage;
+  }
 }

@@ -31,20 +31,16 @@
         <tbody>
           <tr *ngFor="let book of books">
             <td>
-              <img
-                *ngIf="showImage"
-                [src]="book.imageUrl"
-                [alt]="book.bookName"
-                class="img-fluid"
-                [style.border]="imageBorder"
-                [style.padding.px]="imagePadding"
-              />
+              <img *ngIf="showImage" [src]="book.imageUrl" [alt]="book.bookName" class="img-fluid"
+                [style.border]="imageBorder" [style.padding.px]="imagePadding" />
             </td>
             <td>{{ book.bookName }}</td>
             <td>{{ book.bookCode | lowercase }}</td>
             <td>{{ book.releaseDate }}</td>
             <td>{{ book.price | currency: "USD":"symbol":"1.2-2" }}</td>
-            <td>{{ book.starRating }}</td>
+            <td>
+              <vsr-star [rating]='book.starRating' (ratingClicked)='onRatingClicked($event)'></vsr-star>
+            </td>
           </tr>
         </tbody>
       </table>
